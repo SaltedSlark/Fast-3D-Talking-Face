@@ -109,7 +109,7 @@ BlendVOCA
      - Start jsonlivelink
      - Run the level
 
-2. Start the audio2face server, you can train and check your model under BlendVOCA, or download the model model [here](https://drive.google.com/file/d/1M2SZ2XBxQmaRSOAoMqiY0b0Ol0pkoLdC/view?usp=drive_link):
+2. Start the audio2face server, you can train and check your model under BlendVOCA, or download the model [here](https://drive.google.com/file/d/1M2SZ2XBxQmaRSOAoMqiY0b0Ol0pkoLdC/view?usp=drive_link):
      ```bash
      python audio2face_server.py --model_name save_512_xx_xx_xx_xx/100_model
      ```
