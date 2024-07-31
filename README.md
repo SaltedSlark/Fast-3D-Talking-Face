@@ -1,5 +1,10 @@
 # Fast-3D-Talking-Face: Blendshape-based Audio-Driven 3D-Talking-Face with Transformer
 
+## Features
+- Real-time Audio-Driven, latency less than 1 sencond
+- Generalize pretty well for chinese and other languages
+- Generalize pretty well for different metahuman character
+
 ## Environment
 
 Create conda environment 
