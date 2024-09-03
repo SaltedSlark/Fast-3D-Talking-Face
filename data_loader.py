@@ -43,10 +43,6 @@ def read_data(args):
     bs_path = os.path.join(args.dataset, args.bs_path)
     processor = Wav2Vec2Processor.from_pretrained("./wav2vec2-large-960h-lv60-self")
 
-    template_file = os.path.join(args.dataset, args.template_file)
-    with open(template_file, 'rb') as fin:
-        templates = pickle.load(fin, encoding='latin1')
-
     for r, ds, fs in os.walk(audio_path):
         for f in tqdm(fs):
             if f.endswith("wav"):
@@ -56,7 +52,6 @@ def read_data(args):
                 key = f.replace("wav", "npy")
                 data[key]["audio"] = input_values
                 subject_id = "_".join(key.split("_")[:-1])
-                temp = templates[subject_id]
                 temp = np.zeros((1,32))
                 data[key]["name"] = f
                 data[key]["template"] = temp.reshape((-1))
