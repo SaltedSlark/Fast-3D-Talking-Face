@@ -1,5 +1,7 @@
 # Fast-3D-Talking-Face: Blendshape-based Audio-Driven 3D-Talking-Face with Transformer
 
+Generally, it's challenging to drive 3D models in various engines using vertices. Therefore, this project draws inspiration from SAiD to directly predict blendshapes. Additionally, it utilizes SelfTalk based on the FaceFormer architecture, which offers the advantage of speed. By combining these two approaches, we can achieve fast driving of 3D characters to speak.
+
 ## Features
 - Real-time Audio-Driven, latency less than 1 second
 - Generalize pretty well for chinese and other languages
