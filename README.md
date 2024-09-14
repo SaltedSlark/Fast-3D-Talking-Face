@@ -128,6 +128,11 @@ BlendVOCA
     ```
   Since I deploy the metahuman project on my windows PC, so the livelink_host should be my PC's IP.
 
+### ！！！Optimize
+To optimize our model's performance on Chinese speech, we need to train it on a Chinese dataset. However, it's challenging to find high-quality open-source Chinese datasets on the internet, so we considered creating our own Chinese dataset. As is well known, dataset creation methods like VOCASET rely on expensive equipment and significant manpower, making such approaches prohibitively demanding.
+
+We noticed that NVIDIA's Omniverse platform offers a high-quality 3D Audio2Face solution. With this, we only need to input audio to export the corresponding blendshape weights, allowing us to quickly produce large amounts of data that meet our format requirements. After verification, we found this approach to be effective. The model trained on our self-created Chinese dataset showed significantly better performance on Chinese speech compared to the model trained on BlendVOCA.
+
 ## Reference
 
 - [SAiD](https://github.com/yunik1004/SAiD)
