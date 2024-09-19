@@ -6,6 +6,7 @@ Generally, it's challenging to drive 3D models in various engines using vertices
 - Real-time Audio-Driven, latency less than 1 second
 - Generalize pretty well for chinese and other languages
 - Generalize pretty well for different metahuman character
+- Generalizes well in any engine that supports blendshapes（UE,CC4,cocos,unity3d...）
 
 ## Environment
 
