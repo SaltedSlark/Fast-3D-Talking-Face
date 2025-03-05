@@ -78,7 +78,6 @@ class Wav2Vec2Model(Wav2Vec2Model):
     def forward(
             self,
             input_values,
-            dataset="vocaset",
             attention_mask=None,
             output_attentions=None,
             output_hidden_states=None,
@@ -111,6 +110,7 @@ class Wav2Vec2Model(Wav2Vec2Model):
 
         if self.config.apply_spec_augment and self.training:
             batch_size, sequence_length, hidden_size = hidden_states.size()
+
             if self.config.mask_time_prob > 0:
                 mask_time_indices = _compute_mask_indices(
                     (batch_size, sequence_length),
@@ -128,13 +128,23 @@ class Wav2Vec2Model(Wav2Vec2Model):
                 )
                 mask_feature_indices = torch.from_numpy(mask_feature_indices).to(hidden_states.device)
                 hidden_states[mask_feature_indices[:, None].expand(-1, sequence_length, -1)] = 0
-        encoder_outputs = self.encoder(
-            hidden_states,
-            attention_mask=attention_mask,
-            output_attentions=output_attentions,
-            output_hidden_states=output_hidden_states,
-            return_dict=return_dict,
-        )
+        try:
+            encoder_outputs = self.encoder(
+                hidden_states,
+                attention_mask=attention_mask,
+                output_attentions=output_attentions,
+                output_hidden_states=output_hidden_states,
+                return_dict=return_dict,
+            )
+        except AttributeError:
+            encoder_outputs = self.encoder(
+                hidden_states[0],
+                attention_mask=attention_mask,
+                output_attentions=output_attentions,
+                output_hidden_states=output_hidden_states,
+                return_dict=return_dict,
+            )
+
         hidden_states = encoder_outputs[0]
         if not return_dict:
             return (hidden_states,) + encoder_outputs[1:]

@@ -22,6 +22,11 @@ def main():
         default= "../test/wav/speech_long.wav",
     )
     parser.add_argument(
+        "--mood",
+        type=str,
+        default= "0",
+    )
+    parser.add_argument(
         "--livelink_host",
         type=str,
         default="192.168.51.119",
@@ -33,7 +38,7 @@ def main():
     )
     args = parser.parse_args()
     audio_file = librosa.load(args.wav_path, sr=16000)[0]
-    response = requests.post(args.audio2face_url, json={'file': audio_file.tolist()}).json()
+    response = requests.post(args.audio2face_url, json={'file': audio_file.tolist(),'mood':int(args.mood)}).json()
     topic = 'iPhoneBlack'
     datas = np.array(response["bs"])
 
