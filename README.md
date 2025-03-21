@@ -134,7 +134,7 @@ To optimize our model's performance on Chinese speech, we need to train it on a 
 
 We noticed that NVIDIA's Omniverse platform offers a high-quality 3D Audio2Face solution. With this, we only need to input audio to export the corresponding blendshape weights, allowing us to quickly produce large amounts of data that meet our format requirements. After verification, we found this approach to be effective. The model trained on our self-created Chinese dataset showed significantly better performance on Chinese speech compared to the model trained on BlendVOCA.
 
-### Check out lite-emo branch
+### Check out [lite-emo](https://github.com/SaltedSlark/Fast-3D-Talking-Face/tree/lite-emo) branch
 To reduce the GPU memory when inference, We try to distill the model.
 
 ## Reference
